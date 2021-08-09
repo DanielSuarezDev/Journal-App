@@ -44,7 +44,7 @@ export const SideBar = () => {
              >Logout</button>
               <div className="user" onClick={handleAddNote}>
                 <MdToday />
-                  <p>Add Note</p>
+                  <p>Add you Note</p>
               </div> 
 
               <JournalEntries />
