@@ -72,6 +72,7 @@ export const refresNote = (id, note) => ({
 
 export const startUploading = (file) => {
   return async (dispatch, getState) => {
+    // eslint-disable-next-line no-unused-vars
     const { active:activeNote } = getState().notes;
 
     const fileUrl = await fileUpload(file)
