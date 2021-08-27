@@ -11,7 +11,20 @@
     justify-content: space-between;
     padding: 10px 20px 10px 20px;
 }
-
+.button-crud {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+.button {
+    cursor: pointer;
+    background-color: $primary;
+    color: #fff;
+    border-radius: 3px;
+    border: transparent;
+    padding: 3px 5px;
+    box-shadow: 5px 3px 3px 1px rgba(98, 18, 189, 0.5);
+}
 .notes__content{
     display: flex;
     flex-direction: column;

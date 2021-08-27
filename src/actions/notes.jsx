@@ -17,11 +17,20 @@ export const startNewNote = () => {
     const doc = await db.collection(`${uid}/journal/notes`).add(newNote);
 
     dispatch(activeNote(doc.id, newNote));
+    dispatch(addNewNote(doc.id, newNote))
   };
 };
 
 export const activeNote = (id, note) => ({
   type: types.notesActive,
+  payload: {
+    id,
+    ...note,
+  },
+});
+
+export const addNewNote = (id, note) => ({
+  type: types.notesAddNotes,
   payload: {
     id,
     ...note,
@@ -58,6 +67,25 @@ export const startSaveNote = (note) => {
   };
 };
 
+export const StartDeleteNote = (id) => {
+  return async (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    await db.doc(`${uid}/journal/notes/${id}`).delete()
+
+    dispatch(deleteNote(id))
+
+  }
+}
+
+export const deleteNote = (id) => ({
+  type: types.noteDelete,
+  payload: id
+})
+
+export const noteLogout = () => ({
+  type: types.noteLogoutCleaning,
+})
+
 export const refresNote = (id, note) => ({
   type: types.notesUpdate,
   payload: {
@@ -75,9 +103,22 @@ export const startUploading = (file) => {
     // eslint-disable-next-line no-unused-vars
     const { active:activeNote } = getState().notes;
 
+    Swal.fire({
+      title: 'uploading...',
+      text: 'plase wait...',
+      allowOutsideClick: false,
+      onBeforeOpen: () => {
+        Swal.showLoading()
+      }
+    })
+
     const fileUrl = await fileUpload(file)
-    console.log(fileUrl)
+    // console.log(fileUrl)
+    activeNote.url = fileUrl
+    dispatch(startSaveNote(activeNote))
 
     // Swal.fire('Save', note.title,'success')
+
+    Swal.close()
   };
 };

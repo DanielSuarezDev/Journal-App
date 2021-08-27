@@ -27,18 +27,18 @@ export const NoteScreen = () => {
 
   return (
     <div className="notes__main-content">
-      <NoteAppBar />
+      <NoteAppBar id={note.id} />
       <div className="notes__content">
         <input
           type="text"
-          placeholder="Type your note here..."
+          placeholder="Titulo note..."
           className="notes__title-input"
           name="title"
           value={title}
           onChange={handleInputChange}
         />
         <textarea
-          placeholder="que paso en tu dia?"
+          placeholder="what happened in your day"
           className="notes__textarea"
           name=""
           id=""
@@ -53,7 +53,7 @@ export const NoteScreen = () => {
         {note.url && (
           <div className="notes__image">
             <img
-              src="https://st.depositphotos.com/1020341/4233/i/600/depositphotos_42333899-stock-photo-portrait-of-huge-beautiful-male.jpg"
+              src={note.url}
               alt="imagen"
             />
           </div>

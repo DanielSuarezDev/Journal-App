@@ -16,19 +16,20 @@ export const JournalEntry = ({ id, date, title, body, url }) => {
   };
 
   return (
-    <div className="journal__entry" onClick={handleEntryClick}>
+    <div className="journal__entry animate__animated animate__flash" onClick={handleEntryClick}>
       {url && (
         <div
           className="journal__entry-picture"
           style={{
             backgroundImage: `url(${url})`,
-            backgroundSize: "cover",
+            backgroundSize: "contain",
+            backgroundRepeat: 'no-repeat'
           }}
         ></div>
       )}
 
       <div className="journal__entry-body">
-        <p className="journal__entry-title">{title}</p>
+        <p className="journal__entry-title animate__animated animate__bounce">{title}</p>
         <p className="journal__entry-content">{body}</p>
       </div>
 

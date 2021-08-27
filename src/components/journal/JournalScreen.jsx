@@ -9,7 +9,7 @@ export const JournalScreen = () => {
 
     return (
         <>
-       <div className='journal__name-content'>
+       <div className='journal__name-content animate__animated animate__bounce'>
 
            <SideBar />
         <main>

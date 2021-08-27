@@ -73,12 +73,15 @@ h3{
 
 .sign-google{
     display: flex;
-    margin-top: 35px;
+    margin: 35px 0;
     justify-content: space-evenly;
     border: 1px solid $dark-grey;
     padding: 15px;
     border-radius: 8px;
     cursor: pointer;
+}
+.btn-text {
+    margin-top: 5px;
 }
 .sign-google img {
     width: 25px;

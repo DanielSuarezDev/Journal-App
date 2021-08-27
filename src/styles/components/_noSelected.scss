@@ -1,10 +1,19 @@
 .noSelected__main-content{
     width: 100vw;
     height: 100vh;
-}
-.noSelected__main-content p {
-
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: 2rem;
+}
+.noSelected__main-content img {
+    width: 50px;
+    height: 50px;
+}
+
+@media screen and (min-width: 768px) {
+    .noSelected__main-content{
+        width: 90%;
+    }
 }
